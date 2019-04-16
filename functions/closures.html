@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Closures</title>
+</head>
+<body>
+<script>
+
+// this variable outside of the function can cause side effects
+// it's available now, but what if it's moved?
+
+let i = 1;
+let f = () => {
+    // i is available inside
+    console.log(i);
+}
+console.log(i);
+f();
+
+// *****************************************************************
+// let's add a scope quickly by wrapping it in an if statement
+
+/*if (true) {
+    let i2 = 1;
+    let f2 = () => {
+        // i2 is available inside
+        console.log(i2);
+    }
+}
+// what will happen? (an error)
+// it can't run because it can't get to that variable
+console.log(i2);
+f2();*/
+
+// *****************************************************************
+// what if we move the f variable outside the func definition?
+
+let f3
+if (true) {
+    let i3 = 1;
+    f3 = () => {
+        // i3 is available inside
+        console.log(i3);
+    }
+}
+// what will happen? (an error)
+// we can print i3 because its function is declared outside of the if scope
+//console.log(i3);
+f3();
+console.dir(f);
+console.dir(f3);
+
+
+//show closure
+let c = () => {
+    // you'll see these in closures
+    // but only if they are used in the anon fun
+    let n = "n";
+    let x = "x";
+    return () => {
+        console.log(n);
+        console.log(x);
+    }
+}
+// log the call, see that it returns a function
+console.dir(c());
+console.dir(c);
+
+
+</script>
+</body>
+</html>

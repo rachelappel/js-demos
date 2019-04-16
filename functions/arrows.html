@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow functions</title>
+</head>
+<body>
+
+<script>
+
+    var coreElements = [
+        'Earth',
+        'Wind',
+        'Water',
+        'Fire'
+    ];
+    coreElements.forEach(ce => console.log(ce));
+
+    // convert to arrow
+
+    function multiply(params) {
+        return params * 2
+    }
+    var result = multiply(4);  // 8
+    console.log(result);
+
+    var multiplyArrow = params => params * 2
+    console.log(multiplyArrow(4));
+
+
+
+</script>
+</body>
+</html>

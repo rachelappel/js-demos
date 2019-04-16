@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASI</title>
+</head>
+<body>
+<button onclick="getReturn()">aaaah</button>
+<button onclick="wontGetReturn()">oops</button>
+<script>
+    function getReturn() {
+        var ok = aaaah();
+        console.log(ok);
+    }
+
+    function wontGetReturn() {
+        var uhoh = oops();
+        console.log(uhoh);
+    }
+
+    function aaaah() {
+        var x = 10;
+        var y = 10;
+        var z = x+y;
+        return z;
+    }
+
+    function oops() {
+        var x = 10;
+        var y = 10;
+        var z = x+y;
+        return
+            z;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes & Properties</title>
+</head>
+<body>
+<button onclick="buyProduct()">Buy product</button>
+
+<script>
+    class Product {
+/*        constructor(name, price, discount) {
+            this._name = name;
+            this._price = price;
+            this._discount = discount;
+        }*/
+
+        get name() {
+            return this._name;
+        }
+
+        set name(newName) {
+            this._name = newName;
+        }
+
+        get price() {
+            return this._price;
+        }
+
+        set name(newPrice) {
+            this._price = newPrice;
+        }
+
+        get discount() {
+            return this._discount;
+        }
+
+        set discount(newDiscount) {
+            if (newDiscount <= 80)
+                {this._discount = newDiscount;}
+           else
+               {this.discount=80;}
+        }
+    }
+
+
+
+    function buyProduct() {
+        let widget = new Product("Widget",1,2);
+
+        widget.name = "Thing";
+        widget.discount = 70;
+        console.log(widget);
+        widget.discount = 99;
+        console.log(widget);
+    }
+
+</script>
+
+</body>
+</html>

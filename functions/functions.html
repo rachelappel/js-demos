@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demos</title>
+</head>
+<body>
+    <div>
+        <button onclick="statementClick()">Run Statement</button>
+        <button onclick="document.getElementById('expr').innerText = expressionClick()">
+            Run Expression
+        </button>
+        <hr>
+
+        <span id="stmt"></span>
+        <span id="expr"></span>
+    </div>
+    <script>
+        function statementClick() {
+            var retVal = doStuff();
+            document.getElementById("stmt").innerText = retVal;
+        }
+
+        function doStuff() {
+            return "function statement";
+        }
+
+        // *****************************************
+
+        var expressionClick = function () {
+            return "function expression";
+        }
+        //document.getElementById("expr").innerText = expressionClick();
+
+        </script>
+</body>
+</html>

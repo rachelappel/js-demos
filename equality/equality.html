@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="equality.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            font-size: 18px;
+        }
+        caption {
+        font-weight:bold;
+        }
+        table {
+            border: 1px solid #000;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #c1cfd8;
+        }
+
+        td, th {
+            width:150px;
+            border: 1px solid #000;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="includedContent" class="container body-content">
+        <div class="jumbotron">
+            <h1>JavaScript Equality</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <table>
+                    <caption>Abstract equality</caption>
+                    <tr><th style="width:250px;">Expression</th><th>Left</th><th>Right</th><th>Result</th></tr>
+                    <tr>
+                        <td>false == 'false'</td>
+                        <td>Falsey</td>
+                        <td>Truthy</td>
+                        <td id="1"></td>
+                    </tr>
+
+                    <tr>
+                        <td>false == '0'</td>
+                        <td>Falsey</td>
+                        <td>Truthy</td>
+                        <td id="2"></td>
+                    </tr>
+
+                    <tr>
+                        <td>false == undefined</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="3"></td>
+                    </tr>
+
+                    <tr>
+                        <td>false == null</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="4"></td>
+                    </tr>
+
+                    <tr>
+                        <td>null == undefined</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="5"></td>
+                    </tr>
+                </table>
+                <button id="buttonA" onclick="compareAbstract()">Abstract Comparisons</button>
+            </div>
+            <div class="col-md-6">
+                <table>
+                    <caption>Strict equality</caption>                    
+                    <tr><th style="width:250px;">Expression</th><th>Left</th><th>Right</th><th>Result</th></tr>
+                    <tr>
+                        <td>false === 'false'</td>
+                        <td>Falsey</td>
+                        <td>Truthy</td>
+                        <td id="11"></td>
+                    </tr>
+                    <tr>
+                        <td>false === '0'</td>
+                        <td>Falsey</td>
+                        <td>Truthy</td>
+                        <td id="12"></td>
+                    </tr>
+                    <tr>
+                        <td>false === undefined</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="13"></td>
+                    </tr>
+                    <tr>
+                        <td>false === null</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="14"></td>
+                    </tr>
+                    <tr>
+                        <td>null === undefined</td>
+                        <td>Falsey</td>
+                        <td>Falsey</td>
+                        <td id="15"></td>
+                    </tr>
+                </table>
+                <button id="buttonS" onclick="compareStrict()">Strict Comparisons</button>
+            </div>
+        </div>
+ 
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrrrrrgs!</title>
+</head>
+<body>
+<button onclick="runCode()">Run code</button>
+<span id="arg"></span>
+
+<script>
+    function runCode() {
+        var sum = arrrrrrgs(1,2,4,"cat");
+        document.getElementById("arg").innerText = sum;
+    }
+
+    var arrrrrrgs = function() {
+        return arguments[0] + arguments[1];
+    };
+</script>
+</body>
+</html>

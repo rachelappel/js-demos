@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Reference types</title>
+</head>
+<body>
+
+
+<script>
+    // reference/object type on heap
+    var programmer = {
+        name: "Grace Hopper",
+        age: 60,
+        language: "COBOL"
+    };
+    console.log("programmer:")
+    console.log(programmer);
+
+    // this assigns nextProgrammer to the pointer for programmer
+    // doesn't copy values
+    var nextProgrammer = programmer;
+    programmer.name = "Barbara Liskov";
+    console.log("nextProgrammer");
+    console.log(nextProgrammer);
+
+    var yetAnotherProgrammer = Object.assign({}, programmer);
+    yetAnotherProgrammer.SkillLevel = "advanced";
+    console.log("programmer ");
+    console.log(programmer);
+    console.log("yetAnotherProgrammer");
+    console.log(yetAnotherProgrammer);
+
+    // to copy values, use assign
+    var anotherProgrammer = {
+        name: "Margaret Hamilton",
+        age: 22,
+        language: "COBOL"
+    };
+    console.log("anotherProgrammer");
+    console.log(anotherProgrammer);
+
+    var polyglotProgrammer = {
+        name: "Rachel Appel",
+        age: 99,
+        languages: ["C#","VB","JavaScript"]
+    };
+    console.log("polyglotProgrammer 3 languages");
+    console.log(polyglotProgrammer);
+
+    var copyPolyglotProgrammer = polyglotProgrammer;
+    console.log("copyPolyglotProgrammer 3 languages");
+    console.log(copyPolyglotProgrammer);
+
+    polyglotProgrammer.languages.push("Kotlin");
+    copyPolyglotProgrammer.languages.push("Erlang");
+
+    // oh no! they both have the same languages! Oops!
+    // assign doesn't do a deep copy
+    console.log("polyglotProgrammer");
+    console.log(polyglotProgrammer);
+    console.log("copyPolyglotProgrammer");
+    console.log(copyPolyglotProgrammer);
+
+
+</script>
+</body>
+</html>

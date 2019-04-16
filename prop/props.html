@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Properties</title>
+</head>
+<body>
+<script>
+
+// regular constructor
+function Product(name,price) {
+    this.name = name;
+    this.price = price;
+    this.discount = 0;
+}
+
+function sellProduct() {
+    var widget = new Product("Widget",20);
+}
+
+function sellProductDiscounted() {
+    var widget = new Product("Widget",20);
+    widget.discount = 10;
+}
+
+// without properties there is no encapsulation
+function sellProductDiscountedOops() {
+    var widget = new Product("Widget",20);
+    widget.discount = 20;
+}
+
+// so you can make getters and setters like this
+// but this is inefficient. too much code. The boilerplate antipattern
+
+function Product(name,price) {
+    var _name=name, _price=price, _discount=0;
+    this.getName = function() { return _name; }
+    this.setName = function(value) { _name = value; }
+    this.getPrice = function() { return _price; }
+    this.setPrice = function(value) { _price = value; }
+    this.getDiscount = function() { return _discount; }
+    this.setDiscount = function(value) { _discount = value; }
+}
+
+
+function ProductX(name,price) {
+    this.name = name;
+    this.price = price;
+    //this.discount = 0; // removed from above
+    var _discount;
+    Object.defineProperty(this,"discount",{
+        get: function() { return _discount; },
+        // can add business rules, and adhere to encapsulation
+        // in this case, a discount over 80
+        set: function(value) { _discount = value; if(_discount>80) _discount = 80; }
+    });
+}
+
+// the client code
+function sellsomeProduct() {
+    var widget = new ProductX("Sneakers",20);
+    widget.discount = 50; // setter is called
+    widget.discount+= 20; // setter is called
+    widget.discount+= 20; // No! Setter will adjust it back to 80 maximum
+    alert(widget.discount); // getter is called
+}
+
+
+</script>
+</body>
+</html>

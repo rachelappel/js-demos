@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Determine what this is</title>
+</head>
+    <body>
+        <div><button id="whatIsThisButton">What object is "this"?</button></div><p></p>
+        <div>What is both this and that? <br /><span id="whatIsThatSpan" style="color:#ff0000;"></span></div>
+        <p></p>
+        <div>
+            After clicking the button, <br />each listitem turns red as it becomes "this" during a loop:
+            <ul id="aListOfThis">
+                <li id="a">This is Sparta</li>
+                <li id="b">This is New York City</li>
+                <li id="c">This is something</li>
+                <li id="d">This is it</li>
+            </ul>
+        </div>        
+    </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $('#whatIsThisButton').click(function () {
+
+        // this is the whatIsThisButton button
+        var that = this;
+        $("#whatIsThatSpan").text("That is: " + that.id);
+
+        // the folowing each method loops through the <ul id="aListOfThis"> element
+        $('#aListOfThis').each(function () {
+            // this is each <li> in the <ul id="aListOfThis"> 
+            var theOther = this;
+            theOther.style.color = "#ff0000";
+        });
+    });
+</script>
+</html>

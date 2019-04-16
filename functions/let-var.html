@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let vs var</title>
+</head>
+<body>
+<button onclick="closure1()">Closure 1</button>
+<button onclick="closure2()">Closure 2</button>
+<button onclick="closure3()">Closure 3</button>
+<script>
+
+    function closure1() {
+        // regular for loop
+        for (var i = 0; i < 3; i++){
+            console.log(i);
+        }
+        console.log("loop done");
+    }
+
+    function closure2() {
+        // what if we need to add a setTimeout to wait 1 second before each loop?
+        for (var i = 0; i < 3; i++){
+            setTimeout(() => {
+                console.log(i);
+            }, 1000)
+        }
+        console.log("loop done, setTimeout");
+    }
+
+    function closure3() {
+        // might it be different if we use a let?
+        for (let i = 0; i < 3; i++){
+            setTimeout(() => {
+                console.log(i);
+            }, 1000)
+        }
+        console.log("loop done, setTimeout let");
+    }
+
+</script>
+</body>
+</html>

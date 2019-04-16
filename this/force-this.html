@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>A little of this, a little of that</title>
+</head>
+<body>
+    <div><button id="button">Run Code</button></div>
+    <p></p>
+    <div>
+        <ul id="list"></ul>
+    </div>    
+</body>
+</html>
+<script>
+    // notice the number of parameters defined here
+    function saySomething(thing) {
+        var node = document.createElement("LI");
+        var textNode = document.createTextNode(this + " says " + thing);
+        node.appendChild(textNode);
+        document.getElementById("list").appendChild(node);
+    }
+
+    document.getElementById("button").addEventListener("click", function() {
+        // without the .call, "this" is the window Object and outputs [object Window]
+        saySomething("Nothing to see here. Move along", "Person");
+
+        // notice the number of arguments here
+        saySomething.call("A programmer", "Hello world");
+        saySomething.call("Katniss Everdeen", "May the odds be ever in your favor");
+        saySomething.call("A Trekkie", "Live long and prosper.");
+    });
+
+</script>
+
+

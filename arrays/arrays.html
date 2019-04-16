@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="newArray()">new Array</button>
+<button onclick="newArrayStd()">[] syntax</button>
+<button onclick="newArrayInit()">new Array(X)</button>
+<button onclick="jag()">Jagged</button>
+<button onclick="checkBounds()">Check Bounds</button>
+<button onclick="inspect()">Inspect</button>
+
+<script>
+    var a = new Array();
+    var b = [];
+    var c = new Array(5);
+
+    function newArray() {
+        a.push('wat');
+        console.log(`a ${a.length}`);
+        console.log(`a.toString() ${a.toString()}`);
+        console.log(Array.isArray(a));
+    }
+
+    function newArrayStd() {
+        b.push('wat');
+        console.log(`b ${b.length}`);
+        console.log(`b.toString() ${b.toString()}`);
+        console.log(Array.isArray(b));
+    }
+
+    function newArrayInit() {
+        // what about new Array with a length?
+        //  var c = new Array(5); declared above
+        c.push('wat');
+        console.log(`c ${c.length}`);
+        console.log(`c.toString() ${c.toString()}`);
+    }
+
+    function checkBounds() {
+        // check out the "out of bounds" that doesn't happen
+        a[12] = 'who';
+        console.log(`a ${a.length}`);
+    }
+
+    function inspect() {
+        console.dir(a);
+        console.dir(b);
+        console.dir(c);
+        console.log(typeof(a));
+        console.log(typeof(b));
+        console.log(typeof(c));
+    }
+
+    function jag(){
+        const jag = [[1, 2, 3], [1, 2]];
+        // len will be 2, since there are 2 dimensions, technically 2 items in array
+        console.log(`jag ${jag.length}`);
+    }
+
+/*    function pushC() {
+        // watch what happens here. (hint: it starts at 5)
+        c.push(1);
+        c.push(2);
+        c.push(3);
+        c.push(4);
+        c.push(5);
+        console.log(`c ${c.length}`);
+        console.dir(c);
+        c[1] = 10;
+        c[2] = 20;
+        c[3] = 30;
+        c[4] = 40;
+        c[5] = 50;
+        console.log(`c ${c.length}`);
+        console.log(Array.isArray(c));
+    }*/
+</script>
+</body>
+</html>
